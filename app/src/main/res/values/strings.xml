@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ExamAndroid</string>
+    <string name="delete_favorite">Удалить из избранного</string>
+</resources>
