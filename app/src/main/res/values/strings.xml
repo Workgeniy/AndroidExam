@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">ExamAndroid</string>
-    <string name="delete_favorite">Удалить из избранного</string>
+    <string name="gallery">Gallery</string>
+    <string name="favorites">Favorites</string>
+    <string name="about">About</string>
+    <string name="cat_image_content_description">Cat image</string>
+    <string name="add_to_favorites">Add to favorites</string>
+    <string name="remove_from_favorites">Remove from favorites</string>
+    <string name="about_text">Это приложение показывает случайные изображения котиков с помощью TheCatAPI.\n\nИсточник: https://thecatapi.com</string>
+    <string name="a_text">О приложении</string>
 </resources>

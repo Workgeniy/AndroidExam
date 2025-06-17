@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/padding_small"
+    android:elevation="@dimen/padding_no"
+    android:padding="@dimen/padding_small">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/catImageView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottom_image_height"
+            android:scaleType="centerCrop" />
+
+        <ImageButton
+            android:id="@+id/favoriteButton"
+            android:layout_width="@dimen/bottom_height"
+            android:layout_height="@dimen/bottom_height"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="@dimen/padding_small"
+            android:background="?android:selectableItemBackgroundBorderless"
+            android:contentDescription="@string/favorites" />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

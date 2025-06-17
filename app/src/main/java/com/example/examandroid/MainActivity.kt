@@ -1,45 +1,29 @@
 package com.example.examandroid
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.ui.Modifier
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.compose.rememberNavController
-import com.example.examandroid.db.AppDatabase
-import com.example.examandroid.presentation.ui.BottomNavigationBar
-import com.example.examandroid.presentation.ui.MyAppTheme
-import com.example.examandroid.presentation.ui.NavigationHost
-import com.example.examandroid.viewmodel.CatViewModel
-import com.example.examandroid.viewmodel.CatViewModelFactory
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.NavHostFragment
+import com.example.examandroid.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
+import androidx.navigation.ui.setupWithNavController
 
-class MainActivity : ComponentActivity() {
+
+@AndroidEntryPoint
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
-
-        val db = AppDatabase.getDatabase(applicationContext)
-        val factory = CatViewModelFactory(db.favoriteDao())
-        val viewModel = ViewModelProvider(this, factory)[CatViewModel::class.java]
-
-
         super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        setContent {
-            MyAppTheme {
-                val navController = rememberNavController()
-                Scaffold(
-                    bottomBar = {
-                        BottomNavigationBar(navController)
-                    }
-                ) { padding ->
-                    NavigationHost(
-                        navController = navController,
-                        modifier = Modifier.padding(padding),
-                        viewModel = viewModel
-                    )
-                }
-            }
-        }
+
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
+
+
+        binding.bottomNavigationView.setupWithNavController(navController)
     }
 }

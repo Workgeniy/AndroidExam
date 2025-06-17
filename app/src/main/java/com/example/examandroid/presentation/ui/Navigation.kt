@@ -5,7 +5,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.examandroid.viewmodel.CatViewModel
+import com.example.examandroid.presentation.viewmodel.CatViewModel
 
 
 @Composable
@@ -13,8 +13,8 @@ fun NavigationHost( navController: NavHostController,
                     modifier: Modifier = Modifier,
                     viewModel: CatViewModel) {
     NavHost(navController, startDestination = "Gallery", modifier = modifier) {
-        composable("Gallery") { GalleryScreen() }
-        composable("About") { AboutScreen() }
-        composable("favorites") {  FavoritesScreen(viewModel = viewModel) }
+        composable("Gallery") { GalleryFragment() }
+        composable("About") { AboutFragment() }
+        composable("favorites") { FavoriteFragment() }
     }
 }
